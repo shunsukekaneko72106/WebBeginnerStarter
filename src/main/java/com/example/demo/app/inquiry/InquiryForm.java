@@ -9,7 +9,7 @@ public class InquiryForm{
 	
 	public InquiryForm() {}
 
-    public InquiryForm(String name, String email, String contents) {
+  public InquiryForm(String name, String email, String contents) {
 		super();
 		this.name = name;
 		this.email = email;
