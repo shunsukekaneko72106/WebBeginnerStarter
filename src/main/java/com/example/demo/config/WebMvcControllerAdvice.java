@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 public class WebMvcControllerAdvice {
 
 	/*
-	 * This method changes empty character to null
+	 * This method changes empty character to null変更
 	 */
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
