@@ -2,6 +2,8 @@ package com.example.demo.app.inquiry;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,43 +12,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/inquiry")
 public class InquiryController {
 
-	@GetMapping
-	public String index(Model model) {
-
-		//hands-on
-
-		return "inquiry/index";
-	}
-
 	@GetMapping("/form")
-	public String form(Model model) {
-		model.addAttribute("titel", "お問い合わせ");
+	public String form(InquiryForm inquiryForm, Model model) {
+		model.addAttribute("title", "お問い合わせ");
 		return "inquiry/form";
 	}
 
 	@PostMapping("/form")
 	public String formGoBack(InquiryForm inquiryForm, Model model) {
-		model.addAttribute("title", "InquiryForm");
+		model.addAttribute("title", "お問い合わせ");
 		return "inquiry/form";
 	}
 
-
 	@PostMapping("/confirm")
-	public String confirm(/*Add parameters. */) {
+	public String confirm(@Validated InquiryForm inquiryForm, BindingResult result, Model model){
+		if(result.hasErrors()){
+			model.addAttribute("title", "フォームページ");
+			return "inquiry/form";
+		}
 
-		//hands-on
-
+		model.addAttribute("title", "確認ページ");
 		return "inquiry/confirm";
 	}
-
-	@PostMapping("/complete")
-	public String complete(/*Add parameters. */) {
-
-		//hands-on
-
-		//redirect
-
-		return "";
-	}
-
 }
