@@ -4,10 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/*
- * This is completed in Easy mode. If you want to practice, please delete this file.
- * イージーモードではこちらは完成させてあります。作成を練習したい場合は一度ファイルごと削除してください。
- */
+
 public class InquiryForm{
 	
 	public InquiryForm() {}

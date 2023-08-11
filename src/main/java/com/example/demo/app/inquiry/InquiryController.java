@@ -1,20 +1,14 @@
 package com.example.demo.app.inquiry;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-/*
- * Add annotations here
- */
+@Controller
+@RequestMapping("/inquiry")
 public class InquiryController {
-
-// 	private final InquiryService inquiryService;
-
-	//Add an annotation here
-// 	public InquiryController(InquiryService inquiryService){
-// 		this.inquiryService = inquiryService;
-// 	}
 
 	@GetMapping
 	public String index(Model model) {
@@ -25,8 +19,8 @@ public class InquiryController {
 	}
 
 	@GetMapping("/form")
-	public String form(/*Add parameters. */) {
-
+	public String form(Model model) {
+		model.addAttribute("titel", "お問い合わせ");
 		return "inquiry/form";
 	}
 
