@@ -2,9 +2,6 @@ package com.example.demo.entity;
 
 import java.time.LocalDateTime;
 
-/*
- * This is completed in Easy mode. If you want to practice, please delete this file.
- */
 public class Inquiry {
 	private int id;
 	private String name;
